@@ -38,8 +38,16 @@ public class LoginServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
-				RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-				rd.forward(request, response);
+				if(n.equals("admin"))
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+					rd.forward(request, response);
+				}
+				else
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+					rd.forward(request, response);
+				}
 			}
 			else 
 			{

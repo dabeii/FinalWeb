@@ -11,11 +11,12 @@
 <body>
 <div class = "container">
     <div class="container-left">
-        <img class="login-logo" src="images/logo.png" alt="logo">
-        <img class="login-image-1" src="images/login.png" alt="man">
+        <a class="header-img"  href="index.jsp">
+                    <img class="login-logo" src="images/logo.png" alt="Main menu logo">
+        </a>
+        <img class="login-image-1" src="images/sport-4.png" alt="man">
     </div>
     <div class="container-right">
-	  <a href="index.jsp"> Back to HomePage  </a>
         <form action=LoginServlet method="post">
             <h1>OUR SPEEDY</h1>
             <p class="welcome">Welcome back !!!</p>

@@ -6,35 +6,40 @@
     <meta charset="UTF-8">
     <title>Sign up</title>
     <link rel="stylesheet" href="css/SignUp_Style.css">
-	<link rel="stylesheet" href="css/Login_Style.css">
+
 </head>
 <body>
 <div class = "container">
     <div class="container-left">
-        <img class="login-logo"src="images/logo.png" alt="logo">
-        <img class="login-image-1"  src="images/login.png" alt="man">
+        <a class="header-img"  href="index.jsp">
+                    <img class="login-logo" src="images/logo.png" alt="Main menu logo">
+        </a>
+        <img class="login-image-1"  src="images/sport.png" alt="man">
     </div>
     <div class="container-right">
-        <form action=SignUpServlet  method="post" id="formDangKy">
+
+        <form action=SignUpServlet method="post" id="formDangKy">
             <h1>Sport Motorcycle</h1>
             <p class="welcome">Welcome back !!!</p>
             <p class="sign-in" style="font-size: 30px">Create an account</p>
-          
+            <div class="flex_txt_field">
+               
+            </div>
 
             <div class="txt_field" id="txtEmail">
-                <input type="text" name="txtName">
+                <input type="text" name="txtName" required>
                 <span></span>
                 <label>Email</label>
             </div>
 
             <div class="flex_txt_field">
                 <div class="txt_field"  >
-                    <input type="text" name="txtPassword" >
+                    <input type="text" name="txtPassword" required>
                     <span></span>
                     <label>Password</label>
                 </div>
                 <div class="txt_field" >
-                    <input type="text" name="txtRepassword" >
+                    <input type="text" name="txtRepassword" required>
                     <span></span>
                     <label>Confirm password</label>
                 </div>
