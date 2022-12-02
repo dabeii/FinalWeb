@@ -1,4 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%><%= new java.util.Date() %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%= new java.util.Date() %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +26,7 @@
   </style>
 </head>
 <body>
+<c:if test="${sessionScope.ac.admin == 1}">
 <div class="side-bar">
   <div class="logo-name">
     <a class="header-img"  href="index.jsp">
@@ -169,5 +172,13 @@
     </div>
   </div>
 </div>
+</c:if>
+<c:if test="${sessionScope.ac.admin != 1}">
+	<center>
+			<h1> 
+				FBI IS SEARCHING FOR YOU
+			</h1>
+	</center>
+</c:if>
 </body>
 </html>
