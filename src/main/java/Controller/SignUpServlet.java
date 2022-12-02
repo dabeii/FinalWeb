@@ -71,7 +71,7 @@ public class SignUpServlet extends HttpServlet {
 			}
 		}catch(ClassNotFoundException e)
 		{
-			
+			e.printStackTrace();
 		}
 	}
 }

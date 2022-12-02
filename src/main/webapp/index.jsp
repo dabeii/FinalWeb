@@ -42,13 +42,18 @@
    </head>
    <!-- body -->
    <body>
+
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
   <a href="shop.jsp">Shop</a>
   <a href="contact.jsp">Contact</a>
+    <c:if test="${sessionScope.ac.admin == 1}">
+    <a href="admin.jsp">Product Manager</a>
+  </c:if>
 </div>
+
 <div id="main">
       <!-- header section start -->
       <div class="header_section">
@@ -57,18 +62,18 @@
             <div class="col-sm-4">
                <div class="search_icon"></div>
             </div>
+                      
             <div class="col-sm-4">
-               <div>
                		<a class="header-img"  href="index.jsp">
-                    <img class="login-logo" src="images/logo.png" alt="Main menu logo">
+               		 <img class="login-logo" src="images/logo.png" alt="Main menu logo">
         			</a>
-               </div>
             </div>
+
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
                   <c:if test="${sessionScope.ac != null}"> <!--Session user phan biet khi nao logout, khi nao login-->
-                  <div class="menu_main">
+                  	<div class="menu_main">
                         <a href="#">Hello ${sessionScope.ac.username}</a>
                      </div>
                      <div class="menu_main">

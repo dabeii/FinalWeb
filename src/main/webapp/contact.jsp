@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -45,6 +46,9 @@
   <a href="about.jsp">About</a>
   <a href="shop.jsp">Shop</a>
   <a href="contact.jsp">Contact</a>
+  <c:if test="${sessionScope.ac.admin == 1}">
+    <a href="admin.jsp">Product Manager</a>
+  </c:if>
 </div>
 
 
@@ -62,9 +66,19 @@
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
+                     <c:if test="${sessionScope.ac != null}"> <!--Session user phan biet khi nao logout, khi nao login-->
+                  	<div class="menu_main">
+                        <a href="#">Hello ${sessionScope.ac.username}</a>
+                     </div>
                      <div class="menu_main">
+                        <a href="LogOut"><i class="fa fa-fw fa-user"></i> Logout</a> <!-- Goi Servlet LogOut de xoa session nguoi dung khi logout -->
+                     </div>
+                  </c:if>
+                  <c:if test="${sessionScope.ac == null }">
+                  	<div class="menu_main">
                         <a href="login.jsp"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
+                  </c:if>
                   </div>
                   <div class="middle_main">
                      <div class="shoping_bag"><img src="images/shopping-bag.png"></div>

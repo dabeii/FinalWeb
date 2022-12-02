@@ -40,6 +40,14 @@ public class LoginServlet extends HttpServlet {
 			Account a = new Account();
 			a.setUsername(n);
 			a.setPassword(p);
+			if(n.equals("admin"))
+			{
+				a.setAdmin(1);
+			}
+			else
+			{
+				a.setAdmin(0);
+			}
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
@@ -47,13 +55,15 @@ public class LoginServlet extends HttpServlet {
 				{
 					HttpSession session= request.getSession();
 					session.setAttribute("ac", a);
-					RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
+					session.setMaxInactiveInterval(86400); //Sau mot ngay session se tu logout
+					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
 				}
 				else
 				{
 					HttpSession session= request.getSession();
 					session.setAttribute("ac", a);
+					session.setMaxInactiveInterval(86400);
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
 				}
