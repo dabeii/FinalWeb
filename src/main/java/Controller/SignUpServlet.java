@@ -1,27 +1,27 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.SignUpDAO;
-import Models.Account;
 import Uti.Connect2DB;
 
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet(name="SignUpServlet",urlPatterns={"/SignUpServlet"})
+@WebServlet("/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private SignUpDAO signupDao= new SignUpDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -36,29 +36,40 @@ public class SignUpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher rd = request.getRequestDispatcher("signup.jsp");
-		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName=request.getParameter("txtName");
-		String passWord=request.getParameter("txtPassword");
-		
-		Account account = new Account();
-		account.setUserName(userName);
-		account.setPassWord(passWord);
-		
+		// TODO Auto-generated method stub
 		try {
-			signupDao.registerAccount(account);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		response.setContentType(getServletInfo());
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = Connect2DB.getConnection();
+		String n=request.getParameter("txtName");
+		String p=request.getParameter("txtPassword");
+		String rp=request.getParameter("txtRepassword");
+		if(!p.equals(rp)) {
+			response.sendRedirect("signup.jsp");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-		rd.forward(request, response);
+		else {
+			try {
+			
+			PreparedStatement ps = con.prepareStatement("insert into login value (?,?)");	
+			ps.setString(1, n);
+			ps.setString(2, p);
+			ps.executeUpdate();
+			response.sendRedirect("login.jsp");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				response.sendRedirect("signup.jsp");
+				e.printStackTrace();
+			}
+			}
+		}catch(ClassNotFoundException e)
+		{
+		
+		}
 	}
-
 }

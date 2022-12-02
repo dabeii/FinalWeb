@@ -13,7 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import Models.Account;
 import Uti.Connect2DB;
 
 /**
@@ -35,30 +37,38 @@ public class LoginServlet extends HttpServlet {
 			PreparedStatement ps = con.prepareStatement("select username from login where username=? and password=?");	
 			ps.setString(1, n);
 			ps.setString(2, p);
+			Account a = new Account();
+			a.setUserName(n);
+			a.setPassword(p);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
 				if(n.equals("admin"))
 				{
+					HttpSession session= request.getSession();
+					session.setAttribute("ac", a);
 					RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 					rd.forward(request, response);
 				}
 				else
 				{
+					HttpSession session= request.getSession();
+					session.setAttribute("ac", a);
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
 				}
 			}
 			else 
 			{
-				out.print("<a href=login.jsp font-size:33pt margin-left:auto margin-right:auto>TRY AGAIN</a>");
+				request.setAttribute("mess", "Wrong");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
-			
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			request.setAttribute("mess", "Wrong");
 		}
 	}
 

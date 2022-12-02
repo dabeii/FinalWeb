@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -59,9 +60,16 @@
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
+                  <c:if test="${sessionScope.ac != null}">
                      <div class="menu_main">
+                        <a href="login.jsp"><i class="fa fa-fw fa-user"></i> Logout</a>
+                     </div>
+                  </c:if>
+                  <c:if test="${sessionScope.ac == null }">
+                  	<div class="menu_main">
                         <a href="login.jsp"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
+                  </c:if>
                   </div>
                   <div class="middle_main">
                      <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
