@@ -51,25 +51,27 @@ public class SignUpServlet extends HttpServlet {
 		String p=request.getParameter("txtPassword");
 		String rp=request.getParameter("txtRepassword");
 		if(!p.equals(rp)) {
-			response.sendRedirect("signup.jsp");
+			request.setAttribute("warn2", "Re-entered password doesn't match");
+			request.getRequestDispatcher("signup.jsp").forward(request,response);
 		}
 		else {
 			try {
 			
-			PreparedStatement ps = con.prepareStatement("insert into login value (?,?)");	
+			PreparedStatement ps = con.prepareStatement("insert into login value (?,?,0)");	
 			ps.setString(1, n);
 			ps.setString(2, p);
 			ps.executeUpdate();
 			response.sendRedirect("login.jsp");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				response.sendRedirect("signup.jsp");
 				e.printStackTrace();
+				request.setAttribute("warn", "Username already exist");
+				request.getRequestDispatcher("signup.jsp").forward(request,response);
 			}
 			}
 		}catch(ClassNotFoundException e)
 		{
-		
+			
 		}
 	}
 }

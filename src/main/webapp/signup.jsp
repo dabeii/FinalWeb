@@ -25,7 +25,8 @@
             <div class="flex_txt_field">
                
             </div>
-
+			<a class="text-warning">${warn}</a>
+			<a class="text-warning">${warn2}</a>
             <div class="txt_field" id="txtEmail">
                 <input type="text" name="txtName" required>
                 <span></span>

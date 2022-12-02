@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			ps.setString(1, n);
 			ps.setString(2, p);
 			Account a = new Account();
-			a.setUserName(n);
+			a.setUsername(n);
 			a.setPassword(p);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			else 
 			{
-				request.setAttribute("mess", "Wrong");
+				request.setAttribute("warn", "Wrong username/password");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}catch(ClassNotFoundException e){
