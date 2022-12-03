@@ -130,7 +130,7 @@
 <div id="editProductModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="edit" method="post">
+      <form action="EditServlet" method="post">
         <div class="modal-header">
           <h4 class="modal-title">Edit Product</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -138,7 +138,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>ID</label>
-            <input value="${detail.id}" name="id" type="text" class="form-control" readonly required>
+            <input value="${detail.id}" name="id" type="text" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Product ID</label>

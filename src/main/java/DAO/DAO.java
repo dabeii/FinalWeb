@@ -36,7 +36,7 @@ public class DAO {
 	
 	public void addProduct(String pid, String name, String image, int price, int quantity, String type)
 	{
-		String query="INSERT INTO Product (id,product_id,name,image,price,quantity,type) VALUES(default,?,?,?,?,?,?)";
+		String query="INSERT INTO product (id,product_id,name,image,price,quantity,type) VALUES(default,?,?,?,?,?,?)";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = Connect2DB.getConnection();
@@ -47,6 +47,28 @@ public class DAO {
 			ps.setInt(4,price);
 			ps.setInt(5,quantity);
 			ps.setString(6,type);
+			ps.executeUpdate();
+		}catch(Exception e)
+		{
+			e.getStackTrace();
+		}
+	}
+	public void editProduct(int id,String pid, String name, String image, int price, int quantity, String type)
+	{
+		String query="UPDATE product\n"
+				+ "SET product_id = ?, name = ?, image = ?, price = ?, quantity = ? , type = ? \r\n"
+				+ "WHERE id = ?";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps= con.prepareStatement(query);
+			ps.setString(1,pid);
+			ps.setString(2,name);
+			ps.setString(3,image);
+			ps.setInt(4,price);
+			ps.setInt(5,quantity);
+			ps.setString(6,type);
+			ps.setInt(7,id);
 			ps.executeUpdate();
 		}catch(Exception e)
 		{
