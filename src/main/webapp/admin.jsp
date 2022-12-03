@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add Product</title>
+  <title>Manager Control</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,6 +36,7 @@
   <ul class="menu">
     <li><img src="images/manage.png"><a href="admin.jsp" class="active">Manage</a></li>
     <li><img src="images/logout.png"><a href="LogOut" class="active">Log Out</a></li>
+    <li><img src=""><a href="ManagerServlet" class="active">Show table</a>
   </ul>
 </div>
 <div class="container">
@@ -86,7 +87,7 @@
 <div id="addProductModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="add" method="post">
+      <form action="AddServlet" method="post">
         <div class="modal-header">
           <h4 class="modal-title">Add Product</h4>
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

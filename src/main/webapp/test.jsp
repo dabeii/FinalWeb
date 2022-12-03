@@ -1,8 +1,9 @@
 <%@ page import= "java.sql.DriverManager" %>
 <%@ page import= "java.sql.Connection" %>
-<%@ page import= "java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import= "Uti.Connect2DB" %>
+<%@ page import= "Models.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import= "DAO.DAO" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,31 +14,32 @@
 </head>
 <body>
 <center>
-	<% 
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = Connect2DB.getConnection();
-			Statement st=con.createStatement();
-			String str= "select * from product";
-			ResultSet rs= st.executeQuery(str);
-			while(rs.next())
-			{%>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>product_id</th>
+				<th>name</th>
+				<th>image</th>
+				<th>price</th>
+				<th>quantity</th>
+				<th>type</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${listS}" var="o">
 				<tr>
-					<td><%=rs.getInt("id") %> </td>
-					<td><%=rs.getString("product_id") %> </td>
-					<td><%=rs.getString("name") %> </td>
-					<td><%=rs.getString("image") %> </td>
-					<td><%=rs.getInt("int") %> </td>
-					<td><%=rs.getInt("quantity") %> </td>
-					<td><%=rs.getString("type") %>> </td>
+					<td>${o.id}</td>
+					<td>${o.pid}</td>
+					<td>${o.name}</td>
+					<td>${o.image}</td>
+					<td>${o.price}</td>
+					<td>${o.quantity}</td>
+					<td>${o.type}</td>
 				</tr>
-			<%}
-		}
-		catch(Exception e){
-			e.getMessage();
-		}
-	%>
-
+			</c:forEach>
+		</tbody>
+	</table>
 </center>
 </body>
 </html>
