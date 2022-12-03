@@ -37,6 +37,7 @@
     <li><img src="images/manage.png"><a href="admin.jsp" class="active">Manage</a></li>
     <li><img src="images/logout.png"><a href="LogOut" class="active">Log Out</a></li>
     <li><img src=""><a href="ManagerServlet" class="active">Show table</a>
+    <li><img src=""><a href="ShowServlet" class="active">Show product</a>
   </ul>
 </div>
 <div class="container">
@@ -73,7 +74,7 @@
       </div>
       <div class="card">
         <div class="box">
-          <a href="#" class="btn">Delete Item</a>
+          <a href="testDelete.jsp" class="btn">Delete Item</a>
         </div>
         <div class="icon-design">
           <img src="images/delete.png" alt="">

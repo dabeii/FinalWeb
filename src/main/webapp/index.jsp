@@ -47,7 +47,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
-  <a href="shop.jsp">Shop</a>
+  <a href="ShowServlet">Shop</a>
   <a href="contact.jsp">Contact</a>
     <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>

@@ -48,6 +48,7 @@ public class DAO {
 			ps.setInt(5,quantity);
 			ps.setString(6,type);
 			ps.executeUpdate();
+			con.close();
 		}catch(Exception e)
 		{
 			e.getStackTrace();
@@ -70,6 +71,22 @@ public class DAO {
 			ps.setString(6,type);
 			ps.setInt(7,id);
 			ps.executeUpdate();
+			con.close();
+		}catch(Exception e)
+		{
+			e.getStackTrace();
+		}
+	}
+	public void deleteProduct(int id)
+	{
+		String query="DELETE FROM product WHERE id= ?";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps= con.prepareStatement(query);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			con.close();
 		}catch(Exception e)
 		{
 			e.getStackTrace();

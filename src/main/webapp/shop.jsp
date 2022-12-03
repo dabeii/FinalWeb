@@ -116,23 +116,23 @@
 						<div class="row">
 							<div class="col-md-12 mb-5">
 								<div class="float-md-left mb-4">
-									<h2 class="text-black h5">${cateName}</h2>
+									<h2 class="text-black h5"></h2>
 								</div>
 								
 							</div>
 						</div>
 
 						<div id="content" class="row mb-5">
-							<c:forEach items="${productList}" var="o">
+							<c:forEach items="${listP}" var="o">
 								<div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
 									<div class="block-4 text-center border">
 										<figure class="block-4-image">
-											<a href="detailPage?productID=${o.productID}"><img
+											<a href="detailPage?productID=${o.pid}"><img
 												src="${o.image}" alt="Image placeholder" class="img-fluid"></a>
 										</figure>
 										<div class="block-4-text p-4">
 											<h3>
-												<a href="detailPage?productID=${o.productID}">${o.productName}</a>
+												<a href="detailPage?productID=${o.pid}">${o.name}</a>
 											</h3>
 											<p class="mb-0">Finding perfect shoes</p>
 											<p class="text-primary font-weight-bold">$${o.price}</p>

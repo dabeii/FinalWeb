@@ -51,22 +51,22 @@ public class LoginServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
 			{
-				if(n.equals("admin"))
+				/*if(n.equals("admin"))
 				{
 					HttpSession session= request.getSession();
 					session.setAttribute("ac", a);
 					session.setMaxInactiveInterval(86400); //Sau mot ngay session se tu logout
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
-				}
-				else
-				{
+				}*/
+				//else
+				//{
 					HttpSession session= request.getSession();
 					session.setAttribute("ac", a);
 					session.setMaxInactiveInterval(86400);
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
-				}
+				//}
 			}
 			else 
 			{
