@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Table of products</title>
+<title>Table of accounts</title>
 <link rel="stylesheet" href="css/style1.css">
 </head>
 <body>
+<c:if test="${sessionScope.ac.admin == 1}">
 <div class="import">
 <a href="AccountServlet" class="active-table" data-toggle="modal">Import Account data</a>
 <a href="admin.jsp" class="active-table">Back to manager</a>
@@ -33,6 +34,13 @@
 		</tbody>
 	</table>
 </center>
-
+</c:if>
+<c:if test="${sessionScope.ac.admin != 1}">
+	<center>
+			<h1> 
+				"STOP HERE" - G12_Manager
+			</h1>
+	</center>
+</c:if>
 </body>
 </html>

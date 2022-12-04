@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/style1.css">
 </head>
 <body>
+<c:if test="${sessionScope.ac.admin == 1}">
 <div class="import">
 <a href="ManagerServlet" class="active-table" data-toggle="modal">Import Table</a>
 <a href="admin.jsp" class="active-table">Back to manager</a>
@@ -41,6 +42,13 @@
 		</tbody>
 	</table>
 </center>
-
+</c:if>
+<c:if test="${sessionScope.ac.admin != 1}">
+	<center>
+			<h1> 
+				"STOP HERE" - G12_Manager
+			</h1>
+	</center>
+</c:if>
 </body>
 </html>

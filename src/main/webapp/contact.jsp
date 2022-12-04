@@ -104,17 +104,17 @@
                           <form action="ContactServlet" method="post">
                           	<h1 class="text-warning">${warn}</h1>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Name" name="txtname">
+                              <input type="text" class="email-bt" placeholder="Name" name="txtname" required>
                             </div>
                             <div class="form-group">
-                              <input type="email" class="email-bt" placeholder="Email" name="txtemail">
+                              <input type="email" class="email-bt" placeholder="Email" name="txtemail" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Phone Number" name="txtphone">
+                              <input type="text" class="email-bt" placeholder="Phone Number" name="txtphone" required>
                             </div>
                             
                             <div class="form-group">
-                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="txtmess"></textarea>
+                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="txtmess" required></textarea>
                             </div>
                             <input type="submit" class="btn btn-success" value="Send">
                           </form>   
