@@ -34,6 +34,7 @@ public class ShowSport extends HttpServlet {
 		// TODO Auto-generated method stub
 		DAO d= new DAO();
 		List<Product> list= d.showSport();
+		request.setAttribute("type", "Sport Motorcycle");
 		request.setAttribute("listP", list);
 		request.getRequestDispatcher("shop.jsp").forward(request, response);
 	}

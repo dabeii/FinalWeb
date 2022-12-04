@@ -122,7 +122,7 @@
 								
 							</div>
 						</div>
-
+						<h1>${type}</h1>
 						<div id="content" class="row mb-5">
 							<c:forEach items="${listP}" var="o">
 								<div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">

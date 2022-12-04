@@ -34,6 +34,7 @@ public class ShowCasual extends HttpServlet {
 		// TODO Auto-generated method stub
 		DAO d= new DAO();
 		List<Product> list= d.showCasual();
+		request.setAttribute("type", "Casual Motorcycle");
 		request.setAttribute("listP", list);
 		request.getRequestDispatcher("shop.jsp").forward(request, response);
 	}
