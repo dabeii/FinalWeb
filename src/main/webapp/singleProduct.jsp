@@ -99,7 +99,6 @@
                   </c:if>
                   </div>
                   <div class="middle_main">
-                     <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -139,16 +138,11 @@
 							<div class="mb-5">
 								<div class="input-group mb-3" style="max-width: 120px;">
 									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus"
-											type="button">&minus;</button>
+										
 									</div>
-									<input name="ammount" type="text"
-										class="form-control text-center" value="1" placeholder=""
-										aria-label="Example text with button addon"
-										aria-describedby="button-addon1">
+									
 									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus"
-											type="button">&plus;</button>
+									
 									</div>
 								</div>
 

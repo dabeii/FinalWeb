@@ -60,18 +60,29 @@
             <div class="col-sm-4">
                <div class="search_icon"></div>
             </div>
-            <div class="col-sm-4">
-               <div class="logo"><img src="images/logo.png"></div>
+             <div class="col-sm-4">
+               		<a class="header-img"  href="index.jsp">
+               		 <img class="login-logo" src="images/logo.png" alt="Main menu logo">
+        			</a>
             </div>
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
+                     <c:if test="${sessionScope.ac != null}"> <!--Session user phan biet khi nao logout, khi nao login-->
+                  	<div class="menu_main">
+                        <a href="#">Hello ${sessionScope.ac.username}</a>
+                     </div>
                      <div class="menu_main">
+                        <a href="LogOut"><i class="fa fa-fw fa-user"></i> Logout</a> <!-- Goi Servlet LogOut de xoa session nguoi dung khi logout -->
+                     </div>
+                  </c:if>
+                  <c:if test="${sessionScope.ac == null }">
+                  	<div class="menu_main">
                         <a href="login.jsp"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
+                  </c:if>
                   </div>
                   <div class="middle_main">
-                     <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -105,7 +116,7 @@
                             <div class="form-group">
                                 <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="txtmess"></textarea>
                             </div>
-                            <input type="submit" class="btn btn-success" value="Add">
+                            <input type="submit" class="btn btn-success" value="Send">
                           </form>   
                        </div>               
                     </div>
