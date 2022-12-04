@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<title>Shop</title>
 	<meta charset="utf-8">
@@ -108,102 +108,76 @@
          </div>
      </div>
 	<div class="site-wrap">
-		<div class="site-section">
+
+		<div class="bg-light py-3">
 			<div class="container">
-
-				<div class="row mb-5">
-					<div class="col-md-9 order-2">
-
-						<div class="row">
-							<div class="col-md-12 mb-5">
-								<div class="float-md-left mb-4">
-									<h2 class="text-black h5"></h2>
-								</div>
-								
-							</div>
-						</div>
-
-						<div id="content" class="row mb-5">
-							<c:forEach items="${listP}" var="o">
-								<div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-									<div class="block-4 text-center border">
-										<figure class="block-4-image">
-											<a href="DetailServlet?id=${o.id}"><img
-												src="${o.image}" alt="Image placeholder" class="img-fluid"></a>
-										</figure>
-										<div class="block-4-text p-4">
-											<h3>
-												<a href="DetailServlet?id=${o.id}">${o.name}</a>
-											</h3>
-											<p class="text-primary font-weight-bold">${o.price} VND</p>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-
-						<div id="pagingContent" class="row" data-aos="fade-up">
-							<div class="col-md-12 text-center">
-								<div class="site-block-27">
-									<ul>
-										<c:if test="${cateID != null }">
-											<c:if test="${(tag - 1) > 0}">
-												<li><a href="category?cateID=${cateID}&p=${tag - 1}">&lt;</a></li>
-											</c:if>
-											<c:forEach begin="1" end="${endP}" var="i">
-												<li class="${tag == i ? 'active':''}"><a
-													href="category?cateID=${cateID}&p=${i}">${i}</a></li>
-											</c:forEach>
-											<c:if test="${(tag + 1) <= endP}">
-												<li><a href="category?cateID=${cateID}&p=${tag + 1}">&gt;</a></li>
-											</c:if>
-										</c:if>
-
-										<c:if test="${cateID == null }">
-											<c:if test="${(tag - 1) > 0 && cateID == null}">
-												<li><a href="shopPage?p=${tag - 1}">&lt;</a></li>
-											</c:if>
-											<c:forEach begin="1" end="${endP}" var="i">
-												<li class="${tag == i ? 'active':''}"><a
-													href="shopPage?p=${i}">${i}</a></li>
-											</c:forEach>
-											<c:if test="${(tag + 1) <= endP && cateID == null}">
-												<li><a href="shopPage?p=${tag + 1}">&gt;</a></li>
-											</c:if>
-										</c:if>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-3 order-1 mb-5 mb-md-0">
-						<div class="border p-4 rounded mb-4">
-							<h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
-							<ul>
-							<li><a href="ShowCasual" class="type">Casual Motorcycle</a></li>
-							<li><a href="ShowSport" class="type">Sport Motorcycle</a></li>
-							<li><a href="ShowTouring" class="type">Touring Motorcycle</a></li>
-							<li><a href="ShowServlet" class="type">All Products</a></li>
-							</ul>
-						</div>
+				<div class="row">
+					<div class="col-md-12 mb-0">
+						<a href="ShowServlet">Products</a> <span class="mx-2 mb-0">/</span> <strong
+							class="text-black">${detail.name}</strong>
 					</div>
 				</div>
 			</div>
 		</div>
+		<c:if test="${mess != null }">
+			<div class="alert alert-success">${mess}</div>
+		</c:if>
+		<form action="addCart?pid=${detail.pid}" method="post">
+			<div class="site-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="${detail.image}" alt="Image" class="img-fluid">
+						</div>
+						<div class="col-md-6">
+							<h4>Type: ${detail.type}</h4>
+							<h2 class="text-black">${detail.name}</h2>
+							<p>
+								<strong class="text-primary h4">${detail.price} VND</strong>
+							</p>
+							<div class="mb-5">
+								<div class="input-group mb-3" style="max-width: 120px;">
+									<div class="input-group-prepend">
+										<button class="btn btn-outline-primary js-btn-minus"
+											type="button">&minus;</button>
+									</div>
+									<input name="ammount" type="text"
+										class="form-control text-center" value="1" placeholder=""
+										aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+									<div class="input-group-append">
+										<button class="btn btn-outline-primary js-btn-plus"
+											type="button">&plus;</button>
+									</div>
+								</div>
+
+							</div>
+							<p>
+								<button type="submit" class="buy-now btn btn-sm btn-primary">
+									Add To Cart</button>
+								<!--  <a href="addCart?pid=${detail.pid}"
+								class="buy-now btn btn-sm btn-primary">Add To Cart</a>-->
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<!--
+		<div class="site-section border-bottom" data-aos="fade">
+			<div class="container">
+				<div class="row justify-content-center mb-5">
+					<div class="col-md-7 site-section-heading text-center pt-4">
+						<h2>Review</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-->
 	</div>
-
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-
-	<script src="js/main.js"></script>
-   <!-- our section end -->
-   <!-- footer section start -->
+<!-- footer section start -->
    <div class="footer_section layout_padding footer_padding">
       <div class="container">
          <div class="row">
@@ -236,8 +210,7 @@
    <!-- footer section start -->
    <!-- copyright section start -->
    <div class="copyright_text">Copyright 2022 All Right Reserved By Group12</div>
-
-      <!-- Javascript files-->
+ <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>

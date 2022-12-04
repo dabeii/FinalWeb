@@ -22,7 +22,7 @@
             <p class="sign-in">Sign in</p>
             <p class="text-warning">${warn}</p>
             <div class="txt_field">
-                <input type="text" name=txtName >
+                <input type="email" name=txtName >
                 <span></span>
                 <label>Email</label>
             </div>
@@ -31,7 +31,7 @@
                 <span></span>
                 <label>Password</label>
             </div>
-            <div class="pass">Forgot Password?</div>
+            <div class="pass"><a href="getPassword">Forgot Password?</a></div>
             <input type="submit" value="Login">
             <div class="signup_link">
                 I don’t have an account ? <a href="signup.jsp">Sign up</a>

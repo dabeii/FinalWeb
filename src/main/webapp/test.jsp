@@ -1,29 +1,28 @@
-<%@ page import= "java.sql.DriverManager" %>
-<%@ page import= "java.sql.Connection" %>
-<%@ page import= "Models.Product" %>
-<%@ page import="java.util.List" %>
-<%@ page import= "DAO.DAO" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Table of products</title>
+<link rel="stylesheet" href="css/style1.css">
 </head>
 <body>
+<a href="ManagerServlet" class="active-table" data-toggle="modal">Import Table</a>
+
+
 <center>
-	<table>
+	<table >
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>product_id</th>
-				<th>name</th>
-				<th>image</th>
-				<th>price</th>
-				<th>quantity</th>
-				<th>type</th>
+				<th class="block-4-image">id</th>
+				<th class="block-4-image">product_id</th>
+				<th class="block-4-image">name</th>
+				<th class="block-4-image">image</th>
+				<th class="block-4-image">price</th>
+				<th class="block-4-image">quantity</th>
+				<th class="block-4-image">type</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,5 +40,7 @@
 		</tbody>
 	</table>
 </center>
+
+<a href="admin.jsp" class="active-table">Back to manager</a>
 </body>
 </html>

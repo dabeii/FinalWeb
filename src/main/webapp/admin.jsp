@@ -35,9 +35,9 @@
   </div>
   <ul class="menu">
     <li><img src="images/manage.png"><a href="admin.jsp" class="active">Manage</a></li>
+    <li><img src="images/entering.png"><a href="test.jsp" class="active">Show table</a>
+    <li><img src="images/entering.png"><a href="ShowServlet" class="active">Show product</a>
     <li><img src="images/logout.png"><a href="LogOut" class="active">Log Out</a></li>
-    <li><img src=""><a href="ManagerServlet" class="active">Show table</a>
-    <li><img src=""><a href="ShowServlet" class="active">Show product</a>
   </ul>
 </div>
 <div class="container">
@@ -74,7 +74,7 @@
       </div>
       <div class="card">
         <div class="box">
-          <a href="testDelete.jsp" class="btn">Delete Item</a>
+          <a href="#deletePModel" class="btn btn-success" data-toggle="modal"><span>Delete Item</span></a>
         </div>
         <div class="icon-design">
           <img src="images/delete.png" alt="">
@@ -174,11 +174,81 @@
     </div>
   </div>
 </div>
+<!--Form delete product-->
+<div id="deletePModel" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="DeleteServlet" method="post">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Product</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>ID in database</label>
+            <input name="id" type="text" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+          <input type="submit" class="btn btn-success" value="Delete">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--  table form-->
+<div id="showtable" class="modal fade">
+  <div class="modal-dialog-table">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Product Table</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div style="overflow-y:auto;"></div>
+              <table class="producttb">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Product ID</th>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${listS}" var="o">
+                  <tr>
+                    <td>${o.id}</td>
+                    <td>${o.pid}</td>
+                    <td>${o.name}</td>
+                    <td>${o.image}</td>
+                    <td>${o.price}</td>
+                    <td>${o.quantity}</td>
+                    <td>${o.type}</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Back">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </c:if>
 <c:if test="${sessionScope.ac.admin != 1}">
 	<center>
 			<h1> 
-				FBI IS SEARCHING FOR YOU
+				"STOP HERE" - G12_Manager
 			</h1>
 	</center>
 </c:if>

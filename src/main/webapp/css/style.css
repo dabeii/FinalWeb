@@ -734,5 +734,7 @@ button.main_bt a:hover { color: #faf9f9; }
 .motor li image{
     display: inline-block;
 }
-
+.type{
+	display:block;
+}
 

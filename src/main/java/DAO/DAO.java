@@ -92,4 +92,109 @@ public class DAO {
 			e.getStackTrace();
 		}
 	}
+	public List<Product> showCasual()
+	{
+		List<Product> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from product where type = 'Casual' ");
+			ResultSet rs= ps.executeQuery();
+			while(rs.next())
+			{
+				list.add(new Product(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getString(7)
+						));
+			}
+			con.close();
+		}catch(Exception e)
+		{
+			e.getMessage();
+		}
+		return list;
+	}
+	public List<Product> showSport()
+	{
+		List<Product> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from product where type = 'Sport' ");
+			ResultSet rs= ps.executeQuery();
+			while(rs.next())
+			{
+				list.add(new Product(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getString(7)
+						));
+			}
+			con.close();
+		}catch(Exception e)
+		{
+			e.getMessage();
+		}
+		return list;
+	}
+	public List<Product> showTouring()
+	{
+		List<Product> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from product where type = 'Touring' ");
+			ResultSet rs= ps.executeQuery();
+			while(rs.next())
+			{
+				list.add(new Product(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getString(7)
+						));
+			}
+			con.close();
+		}catch(Exception e)
+		{
+			e.getMessage();
+		}
+		return list;
+	}
+	public Product getProduct(int id)
+	{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from product where id = ?");
+			ps.setInt(1, id);
+			ResultSet rs= ps.executeQuery();
+			while(rs.next())
+			{
+				return new Product(rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						rs.getString(7)
+						);
+			}
+			con.close();
+		}catch(Exception e)
+		{
+			e.getMessage();
+		}
+		return null;
+	}
+
 }

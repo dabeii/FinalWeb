@@ -198,3 +198,16 @@ a{
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.modal .modal-dialog-table{
+  width: 100%;
+}
+
+.active-table{
+	font-size: 20px;
+	font-family: "Copperplate" Fantasy;
+}
+
+.block-4-image {
+	width: 150px;
+	height: 150px;
+}

@@ -28,7 +28,7 @@
 			<a class="text-warning">${warn}</a>
 			<a class="text-warning">${warn2}</a>
             <div class="txt_field" id="txtEmail">
-                <input type="text" name="txtName" required>
+                <input type="email" name="txtName" required>
                 <span></span>
                 <label>Email</label>
             </div>

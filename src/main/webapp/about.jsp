@@ -44,9 +44,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
-  <a href="shop.jsp">Shop</a>
-  <a href="contact.jsp">Contact</a>
-  <c:if test="${sessionScope.ac.admin == 1}">
+  <a href="ShowServlet">Shop</a>
+    <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>
   </c:if>
 </div>
@@ -60,8 +59,10 @@
             <div class="col-sm-4">
                <div class="search_icon"></div>
             </div>
-            <div class="col-sm-4">
-               <div class="logo"><img src="images/logo.png"></div>
+             <div class="col-sm-4">
+               		<a class="header-img"  href="index.jsp">
+               		 <img class="login-logo" src="images/logo.png" alt="Main menu logo">
+        			</a>
             </div>
             <div class="col-sm-4">
                <div class="togle_3">
@@ -114,7 +115,7 @@
                   <ul>
                      <li><a href="index.jsp">Home</a></li>
                      <li><a href="about.jsp">About Us</a></li>
-                     <li><a href="shop.jsp">Gallery</a></li>
+                     <li><a href="ShowServlet">Gallery</a></li>
                   </ul>
                </div>
             </div>
