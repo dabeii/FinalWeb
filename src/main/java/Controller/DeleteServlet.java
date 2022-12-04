@@ -37,6 +37,7 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		try {
 		String id= request.getParameter("id");
 		System.out.print(id);
 		int i= Integer.parseInt(id);
@@ -44,6 +45,10 @@ public class DeleteServlet extends HttpServlet {
 		DAO d = new DAO();
 		d.deleteProduct(i);
 		response.sendRedirect("admin.jsp");
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="javax.swing.JOptionPane" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
             <p class="sign-in">Sign in</p>
             <p class="text-warning">${warn}</p>
             <div class="txt_field">
-                <input type="email" name=txtName >
+                <input type="text" name=txtName >
                 <span></span>
                 <label>Email</label>
             </div>
@@ -31,7 +32,7 @@
                 <span></span>
                 <label>Password</label>
             </div>
-            <div class="pass"><a href="getPassword">Forgot Password?</a></div>
+            <div class="pass"></div>
             <input type="submit" value="Login">
             <div class="signup_link">
                 I don’t have an account ? <a href="signup.jsp">Sign up</a>

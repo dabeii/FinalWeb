@@ -65,6 +65,7 @@
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
   <a href="ShowServlet">Shop</a>
+  <a href="contact.jsp">Contact</a>
     <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>
   </c:if>
@@ -146,31 +147,7 @@
 							<div class="col-md-12 text-center">
 								<div class="site-block-27">
 									<ul>
-										<c:if test="${cateID != null }">
-											<c:if test="${(tag - 1) > 0}">
-												<li><a href="category?cateID=${cateID}&p=${tag - 1}">&lt;</a></li>
-											</c:if>
-											<c:forEach begin="1" end="${endP}" var="i">
-												<li class="${tag == i ? 'active':''}"><a
-													href="category?cateID=${cateID}&p=${i}">${i}</a></li>
-											</c:forEach>
-											<c:if test="${(tag + 1) <= endP}">
-												<li><a href="category?cateID=${cateID}&p=${tag + 1}">&gt;</a></li>
-											</c:if>
-										</c:if>
-
-										<c:if test="${cateID == null }">
-											<c:if test="${(tag - 1) > 0 && cateID == null}">
-												<li><a href="shopPage?p=${tag - 1}">&lt;</a></li>
-											</c:if>
-											<c:forEach begin="1" end="${endP}" var="i">
-												<li class="${tag == i ? 'active':''}"><a
-													href="shopPage?p=${i}">${i}</a></li>
-											</c:forEach>
-											<c:if test="${(tag + 1) <= endP && cateID == null}">
-												<li><a href="shopPage?p=${tag + 1}">&gt;</a></li>
-											</c:if>
-										</c:if>
+										
 									</ul>
 								</div>
 							</div>
@@ -228,7 +205,7 @@
             </div>
             <div class="col-sm-4">
                <h2 class="important_text">Please contact us</h2>
-               <p class="footer_lorem_text">We sell only good</p>
+               <p class="footer_lorem_text">We trade only good</p>
             </div>
          </div>   
       </div>

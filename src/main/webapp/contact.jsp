@@ -1,6 +1,6 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -44,9 +44,9 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
-  <a href="shop.jsp">Shop</a>
+  <a href="ShowServlet">Shop</a>
   <a href="contact.jsp">Contact</a>
-  <c:if test="${sessionScope.ac.admin == 1}">
+    <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>
   </c:if>
 </div>
@@ -66,19 +66,9 @@
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
-                     <c:if test="${sessionScope.ac != null}"> <!--Session user phan biet khi nao logout, khi nao login-->
-                  	<div class="menu_main">
-                        <a href="#">Hello ${sessionScope.ac.username}</a>
-                     </div>
                      <div class="menu_main">
-                        <a href="LogOut"><i class="fa fa-fw fa-user"></i> Logout</a> <!-- Goi Servlet LogOut de xoa session nguoi dung khi logout -->
-                     </div>
-                  </c:if>
-                  <c:if test="${sessionScope.ac == null }">
-                  	<div class="menu_main">
                         <a href="login.jsp"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
-                  </c:if>
                   </div>
                   <div class="middle_main">
                      <div class="shoping_bag"><img src="images/shopping-bag.png"></div>
@@ -100,25 +90,24 @@
                   <div class="email_box">
                     <div class="input_main">
                        <div class="container">
-                          <form action="/action_page.php">
+                          <form action="ContactServlet" method="post">
+                          	<h1 class="text-warning">${warn}</h1>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Name" name="Name">
+                              <input type="text" class="email-bt" placeholder="Name" name="txtname">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Email" name="Name">
+                              <input type="email" class="email-bt" placeholder="Email" name="txtemail">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
+                              <input type="text" class="email-bt" placeholder="Phone Number" name="txtphone">
                             </div>
                             
                             <div class="form-group">
-                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="txtmess"></textarea>
                             </div>
+                            <input type="submit" class="btn btn-success" value="Add">
                           </form>   
-                       </div> 
-                       <div class="send_btn">
-                        <button type="button" class="main_bt"><a href="#">Send</a></button>
-                       </div>                   
+                       </div>               
                     </div>
                  </div>
                </div>
@@ -151,7 +140,7 @@
             </div>
             <div class="col-sm-4">
                <h2 class="important_text">Please contact us</h2>
-               <p class="footer_lorem_text">We sell only good</p>
+               <p class="footer_lorem_text">We trade only good</p>
             </div>
          </div>   
       </div>

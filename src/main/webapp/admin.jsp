@@ -35,8 +35,9 @@
   </div>
   <ul class="menu">
     <li><img src="images/manage.png"><a href="admin.jsp" class="active">Manage</a></li>
-    <li><img src="images/entering.png"><a href="test.jsp" class="active">Show table</a>
-    <li><img src="images/entering.png"><a href="ShowServlet" class="active">Show product</a>
+    <li><img src="images/entering.png"><a href="table.jsp" class="active">Show products</a>
+     <li><img src="images/entering.png"><a href="account.jsp" class="active">Show accounts</a>
+    <li><img src="images/login-1.png"><a href="ShowServlet" class="active">Go to products page</a>
     <li><img src="images/logout.png"><a href="LogOut" class="active">Log Out</a></li>
   </ul>
 </div>
@@ -58,6 +59,7 @@
     <div class="cards">
       <div class="card">
         <div class="box">
+        		<a class="text-warning">${warn}</a>
           <a href="#addProductModal" class="btn btn-success" data-toggle="modal"> <span>Add Product</span></a>
         </div>
         <div class="icon-design">
@@ -66,6 +68,7 @@
       </div>
       <div class="card">
         <div class="box">
+        		<a class="text-warning">${warn}</a>
           <a href="#editProductModal" class="btn btn-success" data-toggle="modal"> <span>Edit Product</span></a>
         </div>
         <div class="icon-design">
@@ -74,6 +77,7 @@
       </div>
       <div class="card">
         <div class="box">
+        		<a class="text-warning">${warn}</a>
           <a href="#deletePModel" class="btn btn-success" data-toggle="modal"><span>Delete Item</span></a>
         </div>
         <div class="icon-design">

@@ -211,3 +211,23 @@ a{
 	width: 150px;
 	height: 150px;
 }
+
+.import{
+    display: flex;
+    align-content: space-between;
+      justify-content: space-between;
+    width:100%;
+    position: center;
+    height: 50px;
+    text-align: right;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-left: 30px;
+    font-size: 25px;
+    background: white;
+    color: #1744A6;
+    font-weight: bold;
+}
+.import a:hover{
+    color: black;
+}

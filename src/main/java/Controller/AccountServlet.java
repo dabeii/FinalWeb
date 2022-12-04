@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.DAO;
+import Models.Account;
+import Models.Product;
 
 /**
- * Servlet implementation class AddServlet
+ * Servlet implementation class AccountServlet
  */
-@WebServlet(name="AddServlet", urlPatterns= {"/AddServlet"})
-public class AddServlet extends HttpServlet {
+@WebServlet("/AccountServlet")
+public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddServlet() {
+    public AccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,6 +33,10 @@ public class AddServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		DAO d= new DAO();
+		List<Account> list= d.getAllaccount();
+		request.setAttribute("listA", list);
+		request.getRequestDispatcher("account.jsp").forward(request, response);
 	}
 
 	/**
@@ -36,22 +44,7 @@ public class AddServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-		String pid= request.getParameter("pid");
-		String name= request.getParameter("name");
-		String image= request.getParameter("image");
-		String price= request.getParameter("price");
-		String quantity= request.getParameter("quantity");
-		String type= request.getParameter("type");
-		int p= Integer.parseInt(price);
-		int q= Integer.parseInt(quantity);
-		DAO d= new DAO();
-		d.addProduct(pid, name, image, p, q, type);  
-		response.sendRedirect("admin.jsp");
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		doGet(request, response);
 	}
 
 }

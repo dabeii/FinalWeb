@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.DAO;
 
 /**
- * Servlet implementation class AddServlet
+ * Servlet implementation class ContactServlet
  */
-@WebServlet(name="AddServlet", urlPatterns= {"/AddServlet"})
-public class AddServlet extends HttpServlet {
+@WebServlet(name="ContactServlet", urlPatterns={"/ContactServlet"})
+public class ContactServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddServlet() {
+    public ContactServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,6 +29,7 @@ public class AddServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -37,20 +38,18 @@ public class AddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-		String pid= request.getParameter("pid");
-		String name= request.getParameter("name");
-		String image= request.getParameter("image");
-		String price= request.getParameter("price");
-		String quantity= request.getParameter("quantity");
-		String type= request.getParameter("type");
-		int p= Integer.parseInt(price);
-		int q= Integer.parseInt(quantity);
+		String name= request.getParameter("txtname");
+		String email= request.getParameter("txtemail");
+		String phone= request.getParameter("txtphone");
+		String mess= request.getParameter("txtmess");
+		long p = Integer.parseUnsignedInt(phone);
 		DAO d= new DAO();
-		d.addProduct(pid, name, image, p, q, type);  
-		response.sendRedirect("admin.jsp");
+		d.contact(name, email, p, mess);
+		response.sendRedirect("contact.jsp");
 		}catch(Exception e)
 		{
-			e.printStackTrace();
+			request.setAttribute("warn", "Invalid phone number");
+			request.getRequestDispatcher("contact.jsp").forward(request, response);
 		}
 	}
 

@@ -65,6 +65,7 @@
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
   <a href="ShowServlet">Shop</a>
+  <a href="contact.jsp">Contact</a>
     <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>
   </c:if>
@@ -122,7 +123,7 @@
 		<c:if test="${mess != null }">
 			<div class="alert alert-success">${mess}</div>
 		</c:if>
-		<form action="addCart?pid=${detail.pid}" method="post">
+		<form action="contact.jsp" method="post">
 			<div class="site-section">
 				<div class="container">
 					<div class="row">
@@ -154,9 +155,7 @@
 							</div>
 							<p>
 								<button type="submit" class="buy-now btn btn-sm btn-primary">
-									Add To Cart</button>
-								<!--  <a href="addCart?pid=${detail.pid}"
-								class="buy-now btn btn-sm btn-primary">Add To Cart</a>-->
+									Contact us</button>
 							</p>
 
 						</div>
@@ -202,7 +201,7 @@
             </div>
             <div class="col-sm-4">
                <h2 class="important_text">Please contact us</h2>
-               <p class="footer_lorem_text">We sell only good</p>
+               <p class="footer_lorem_text">We trade only good</p>
             </div>
          </div>   
       </div>

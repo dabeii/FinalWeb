@@ -36,7 +36,7 @@ public class ManagerServlet extends HttpServlet {
 		DAO d= new DAO();
 		List<Product> list= d.getAllproducts();
 		request.setAttribute("listS", list);
-		request.getRequestDispatcher("test.jsp").forward(request, response);
+		request.getRequestDispatcher("table.jsp").forward(request, response);
 	}
 
 	/**

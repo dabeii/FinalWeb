@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Models.Account;
 import Models.Product;
 import Uti.Connect2DB;
 
@@ -25,6 +26,28 @@ public class DAO {
 						rs.getInt(5),
 						rs.getInt(6),
 						rs.getString(7)
+						));
+			}
+		}catch(Exception e)
+		{
+			e.getMessage();
+		}
+		return list;
+	}
+	
+	public List<Account> getAllaccount()
+	{
+		List<Account> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from login");
+			ResultSet rs= ps.executeQuery();
+			while(rs.next())
+			{
+				list.add(new Account(rs.getString(1),
+						rs.getString(2),
+						rs.getInt(3)
 						));
 			}
 		}catch(Exception e)
@@ -196,5 +219,22 @@ public class DAO {
 		}
 		return null;
 	}
-
+	public void contact(String name, String email, long phone, String mess)
+	{
+		String query="INSERT INTO contact VALUES(?,?,?,?)";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = Connect2DB.getConnection();
+			PreparedStatement ps= con.prepareStatement(query);
+			ps.setString(1, name);
+			ps.setString(2, email);
+			ps.setLong(3, phone);
+			ps.setString(4, mess);
+			ps.executeUpdate();
+			con.close();
+		}catch(Exception e)
+		{
+			e.getStackTrace();
+		}
+	}
 }

@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session= request.getSession();
 					session.setAttribute("ac", a);
 					session.setMaxInactiveInterval(86400); //Sau mot ngay session se tu logout
-					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 					rd.forward(request, response);
 				}*/
 				//else

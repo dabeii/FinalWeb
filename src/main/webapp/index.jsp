@@ -48,6 +48,7 @@
   <a href="index.jsp">Home</a>
   <a href="about.jsp">About</a>
   <a href="ShowServlet">Shop</a>
+  <a href="contact.jsp">Contact</a>
     <c:if test="${sessionScope.ac.admin == 1}">
     <a href="admin.jsp">Product Manager</a>
   </c:if>
@@ -113,6 +114,7 @@
                               <h1 class="sport_text"><strong>Casual<br><span style="color: #fff;">Motorcycle</span></strong></h1>
                               <p class="lorem_text">Casual motorcycles take you to everywhere with convenience</p>
                                <button onclick="location.href ='ShowServlet'" class="boynow_bt" >Buy Now</button>
+                               <button onclick="location.href ='contact.jsp'" class="contact_bt" >Contact Us</button>
                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -132,6 +134,7 @@
                               <h1 class="sport_text"><strong>Sports<br><span style="color: #fff;">Motorcycle</span></strong></h1>
                               <p class="lorem_text">Sport motorcycle are designed for everyone who loves speed</p>
                               <button onclick="location.href ='ShowServlet'" class="boynow_bt" >Buy Now</button>
+                              <button onclick="location.href ='contact.jsp'" class="contact_bt" >Contact Us</button>
                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -151,6 +154,7 @@
                               <h1 class="sport_text"><strong>Touring<br><span style="color: #fff;">Motorcycle</span></strong></h1>
                               <p class="lorem_text">Have a long trip? Don't worry we got you</p>
                                <button onclick="location.href ='ShowServlet'" class="boynow_bt" >Buy Now</button>
+                               <button onclick="location.href ='contact.jsp'" class="contact_bt" >Contact Us</button>
                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -250,7 +254,7 @@
             </div>
             <div class="col-sm-4">
                <h2 class="important_text">Please contact us</h2>
-               <p class="footer_lorem_text">We sell only good</p>
+               <p class="footer_lorem_text">We trade only good</p>
             </div>
          </div>   
       </div>
