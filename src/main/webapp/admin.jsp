@@ -37,6 +37,7 @@
     <li><img src="images/manage.png"><a href="admin.jsp" class="active">Manage</a></li>
     <li><img src="images/entering.png"><a href="table.jsp" class="active">Show products</a>
      <li><img src="images/entering.png"><a href="account.jsp" class="active">Show accounts</a>
+     <li><img src="images/entering.png"><a href="message.jsp" class="active">Show messages</a>
     <li><img src="images/login-1.png"><a href="ShowServlet" class="active">Go to products page</a>
     <li><img src="images/logout.png"><a href="LogOut" class="active">Log Out</a></li>
   </ul>
