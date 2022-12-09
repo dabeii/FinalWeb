@@ -83,6 +83,9 @@
                   </c:if>
                   </div>
                   <div class="middle_main">
+                   <div class="shoping_bag"><a href="cart.jsp"><img src="images/shopping-bag.png"></a></div>
+                  </div>
+                  <div class="middle_main">
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -98,7 +101,7 @@
          <div class="about_img"><img src="images/about-img3.png" style="max-width: 100%;"></div>
          <h2 class="about_text"><strong>About <span style="color: #000;">Us</span></strong></h2>
          <div class="about_middle">
-            <p class="about_welcome">Welcome to Group12_FinalProject</p>
+            <p class="about_welcome">Welcome to GROUP47_DEMO_AURORA</p>
          </div>
       </div>
    </div>

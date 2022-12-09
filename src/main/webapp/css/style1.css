@@ -67,7 +67,7 @@ a{
   color: white;
 }
 .side-bar li{
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px 40px;
   display: flex;
   align-items: center;
@@ -230,4 +230,35 @@ a{
 }
 .import a:hover{
     color: black;
+}
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  align-content: space-between;
+}
+table, th, td {
+  border: 1px solid black;
+}
+thead {
+  background-color: #1744A6;
+  color: #ffffff;
+}
+th {
+  text-align: center;
+  height: 50px;
+}
+td {
+  padding-left: 5px;
+  height: 50px;
+}
+tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+tbody tr:nth-child(even) {
+  background: #f4f4f4;
+} 
+
+.modal .modal-dialog-table{
+  width: 100%;
 }

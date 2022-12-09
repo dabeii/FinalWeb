@@ -99,6 +99,8 @@
                   </c:if>
                   </div>
                   <div class="middle_main">
+ 					<div class="shoping_bag"><a href="cart.jsp"><img src="images/shopping-bag.png"></a></div>                  </div>
+                  <div class="middle_main">
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -136,6 +138,7 @@
 												<a href="DetailServlet?id=${o.id}">${o.name}</a>
 											</h3>
 											<p class="text-primary font-weight-bold">${o.price} VND</p>
+												<a href="AddtocartServlet?id=${o.id}">Add to cart</a>
 										</div>
 									</div>
 								</div>
@@ -145,9 +148,7 @@
 						<div id="pagingContent" class="row" data-aos="fade-up">
 							<div class="col-md-12 text-center">
 								<div class="site-block-27">
-									<ul>
-										
-									</ul>
+									<ul></ul>
 								</div>
 							</div>
 						</div>

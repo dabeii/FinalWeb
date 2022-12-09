@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Account;
+import Models.Cart;
 import Models.Contact;
 import Models.Product;
 import Uti.Connect2DB;
@@ -34,6 +35,39 @@ public class DAO {
 			e.getMessage();
 		}
 		return list;
+	}
+	
+	public List<Cart> getCartproduct(ArrayList<Cart> cartList)
+	{
+		List<Cart> products = new ArrayList<Cart>();
+		try {
+			if(cartList.size()>0)
+				for(Cart item:cartList)
+				{
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = Connect2DB.getConnection();
+					PreparedStatement ps = con.prepareStatement("select * from product where id = ?");
+					ps.setInt(1, item.getId());
+					ResultSet rs = ps.executeQuery();
+					while(rs.next())
+					{
+						Cart row = new Cart();
+						row.setId(rs.getInt("id"));
+						row.setName(rs.getString("image"));
+						row.setName(rs.getString("name"));
+						row.setPrice(rs.getInt("price")*item.getQuantity());
+						row.setQuantity(item.getQuantity());
+						products.add(row);
+					}
+				}
+			
+		}catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return products;
 	}
 	
 	public List<Account> getAllaccount()
